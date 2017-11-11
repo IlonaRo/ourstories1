@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  		<!--jQuery-->
+  		<script src="js/jquery-3.2.1.min.js"></script>
+  		<script src="js/bootstrap.min.js"></script>
+  		<script src="js/myscript.js"></script>
+  		<script src="js/jquery.googlemap.js"></script>
+  		<script src="js/myapp.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>OUR STORIES</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/grayscale.min.css" rel="stylesheet">
+	<link href="css/signin.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">OUR STORIES</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#About">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="story.html">Stories</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="company.html">Companies</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="activity.html">Activities</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="map.html">Map</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#Share">Share</a>
+            </li>
+           	<li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#loginform" href="#">
+                        Login
+                    </a>
+			</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+ 
+
+	  <!-- Map section -->
+<br><br><br><br><br><br><br><br>
+			<div class="container"><center>
+ <h5>Select area</h5>
+			<form id="search">
+				<select id="area">
+					<option value=''>-Select-</option>
+					<option value='TORNIO'>TORNIO</option>
+					<option value='YLITORNIO'>YLITORNIO</option>
+				</select>
+				<input type="submit" value="Show" />
+			</form>    
+			</center></div>
+<br><br><br>
+	
+    <div id="map"></div>   
+
+<br><br><br><br><br><br>
+
+
+ 
+    <!-- Footer -->
+    <footer>
+      <div class="container text-center">
+        <p>Copyright &copy; Team Four 2017</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="js/myscript.js"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNAyAx8R8zwfwnfaWWZghdXN4_A8MH7So"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/grayscale.min.js"></script>
+
+  </body>
+
+</html>
+<!--Modal form for login-->
+<div id="loginform" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+			 <h5 class="modal-title">Login to admin site</h5>
+			 <form class="form-signin" id="formsignin">
+			 Email: <input class="form-control" id="email" type="email" required />
+			 Password: <input class="form-control" id="password" type="password" required />
+			 <input class="btn btn-lg btn-primary btn-block" type="submit" id="submitbtn" value="Login" />
+			 </form>
+			</div>
+			<div id="logininfo"></div>
+			<div class="modal-footer">
+				<button type="button" class="close" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
