@@ -1,2 +1,2 @@
 # ourstories1
-#Test juha
+#This is our School Project
