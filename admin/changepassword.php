@@ -5,7 +5,7 @@
 */
 ?>
 <h4>Change your password</h4>
-
+<div class="well">
 <form action="updatepassword.php" method="post">
  <table class="table">
 	<tr><td>Old password</td><td><input type="password" name="old" /></td></tr>
@@ -51,4 +51,5 @@ if($result->num_rows>0){
 	
 </div>
 
+</div>
 </div>

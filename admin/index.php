@@ -46,7 +46,8 @@ if($result->num_rows>0){
 			<a href="index.php?page=activity">Activity</a>
 			<?php if($level=='admin')echo '<a href="index.php?page=users">Users</a>';?>
 			<a href="index.php?page=chpwd"><?php echo $_SESSION['name']?></a>
-			<a href="logout.php">Logout</a>
+			<a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>&nbsp; Logout</a></span>
+
 		  </p>
 		 </div>
 
