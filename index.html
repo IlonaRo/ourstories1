@@ -35,7 +35,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">OUR STORIES!!!</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">OUR STORIES</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -55,13 +55,7 @@
               <a class="nav-link" href="activity.html">Activities</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="map.html">Map</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#Share">Share</a>
+              <a class="nav-link js-scroll-trigger" href="#Contact">Contact</a>
             </li>
            	<li class="nav-item">
                     <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#loginform" href="#">
@@ -143,33 +137,74 @@
    </section>
 
     <!-- Contact Section -->
-    <section id="Contact" class="Contact-section content-section text-center">
-      <div class="container">
-        <div class="col-lg-8 mx-auto">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <h2>our stories social media</h2>
-                <p>Follow us and leave comments on the</p>
-                <ul class="list-inline banner-social-buttons">
-                  <li class="list-inline-item">
-                    <a href="http://ourstories.info/" class="btn btn-default btn-lg">
-                      <span class="network-name">Website</span>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="https://www.facebook.com/northernlightsroute/" class="btn btn-default btn-lg">
-                      <span class="network-name">Facebook</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+	<center>
+	<br><br><br>
+   
+     <div id="Contact">
+        
+         <h3>Contact us</h3>
+		  <form name="contactform" method="post" action="send_form_email.php">
+				<table width="10%">
+				<tr>
+				 <td valign="top">
+				  <label for="first_name">Firstname*</label>
+				 </td>
+				 <td valign="top">
+				  <input  type="text" name="first_name" maxlength="50" size="40">
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td valign="top"">
+				  <label for="last_name">Lastname*</label>
+				 </td>
+				 <td valign="top">
+				  <input  type="text" name="last_name" maxlength="50" size="40">
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td valign="top">
+				  <label for="email">Email*</label>
+				 </td>
+				 <td valign="top">
+				  <input  type="text" name="email" maxlength="80" size="40">
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td valign="top">
+				  <label for="telephone">Telephone</label>
+				 </td>
+				 <td valign="top">
+				  <input  type="text" name="telephone" maxlength="30" size="40">
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td valign="top">
+				  <label for="comments">Message*</label>
+				 </td>
+				 <td valign="top">
+				  <textarea  name="comments" maxlength="1000" cols="40" rows="6"></textarea>
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				<td></td>
+				 <td valign="top" style="text-align:center">
+				  <input type="submit" value="Send">
+				  </td>
+				  <td></td>
+				</tr>
+				</table>
+			</form>
+               
+      </div>        
+           
+          
+ 
+</center>
     <!-- Footer -->
     <footer>
       <div class="container text-center">

@@ -143,7 +143,7 @@ a {
     margin-top: 300px;}
 
 .content-section {
-  padding-top: 150px;
+  padding-top: 15px;
   padding-bottom: 150px; }
 
 .Contact-section {
@@ -153,7 +153,8 @@ a {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; }
+  background-size: cover;
+  margin: auto;}
 
 
 #map {
