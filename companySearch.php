@@ -12,9 +12,9 @@ $sql="SELECT DISTINCT * FROM company
 	JOIN community
 	ON companyarea.communityID=community.communityID
 	WHERE community.communityName LIKE '$search'";
-$result = $conn->query($sql);
+$search = $conn->query($sql);
 $output=array();
-while($row=$result->fetch_assoc()){
+while($row=$search->fetch_assoc()){
 	$output[]=$row;
 }
 if(!empty($search)) echo json_encode($output);
