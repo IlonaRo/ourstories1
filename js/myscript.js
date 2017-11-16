@@ -18,7 +18,7 @@ $(document).ready(function(){
 	$("#cmpTable3").click(function(){
 		loadActivityTable();
 	});
-	$("#search").keyup(function(){
+	$("#searchActivity").keyup(function(){
 		searchActivity();
 	});
 	// activity part Stop
@@ -86,7 +86,7 @@ $(document).ready(function(){
 function loadActivityDefault(){
  $.getJSON( "activityDefault.php", function( data ) {
 	var resultlist='';
-	$.each( data, function( key, activity ) {
+	$.each( data, function( key, activity, ) {
 		resultlist=resultlist+activity.activityID+' '+activity.activityName+' '+activity.activityDescription+'<br />';
 	});
 	$("#results3").html(resultlist);
@@ -106,12 +106,13 @@ function loadActivityTable(){
  });
 }
 function searchActivity(){
-	var searchword=$("#search").val();
+	var searchword=$("#searchActivity").val();
 	$.getJSON("activitySearch.php?search="+searchword,function(data){
 		var resultlist='';
 		$.each( data, function( key, activity ) {
-			resultlist=resultlist+activity.activityID+' '+activity.activityName+'<br />';
-		});
+			resultlist=resultlist+'<tr><td>'+activity.activityID+'</td><td>'+activity.activityName+'</td>';
+			
+			});
 	$("#results3").html(resultlist);
 	});
 }
