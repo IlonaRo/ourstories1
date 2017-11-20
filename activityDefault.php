@@ -6,9 +6,9 @@
 header("Access-Control-Allow-Origin: * "); //all the UIs can access
 include('db.php');
 $sql="SELECT * FROM activity ORDER BY activityName";
-$result = $conn->query($sql);
+$result3 = $conn->query($sql);
 $output=array();
-while($row=$result->fetch_assoc()){
+while($row=$result3->fetch_assoc()){
 	$output[]=$row;
 }
 echo json_encode($output);

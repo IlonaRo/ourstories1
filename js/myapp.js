@@ -7,7 +7,7 @@ $(document).ready(function(){
 	initializeMap();
 	getLocation(); //gets users location and initializes the map. Shows the location on the map.
     addMarkers();
-	$("#search").submit(function(event){
+	$("#searchmap").submit(function(event){
 		addSearch();
 		return false;  //no page refresh after submit
 	});

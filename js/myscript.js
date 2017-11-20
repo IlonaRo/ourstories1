@@ -18,7 +18,7 @@ $(document).ready(function(){
 	$("#cmpTable3").click(function(){
 		loadActivityTable();
 	});
-	$("#search3").keyup(function(){
+	$("#searchActivity").keyup(function(){
 		searchActivity();
 	});
 	// activity part Stop
@@ -86,7 +86,7 @@ $(document).ready(function(){
 function loadActivityDefault(){
  $.getJSON( "activityDefault.php", function( data ) {
 	var resultlist='';
-	$.each( data, function( key, activity ) {
+	$.each( data, function( key, activity, ) {
 		resultlist=resultlist+activity.activityID+' '+activity.activityName+' '+activity.activityDescription+'<br />';
 	});
 	$("#results3").html(resultlist);
@@ -94,25 +94,25 @@ function loadActivityDefault(){
 }
 
 function loadActivityTable(){
- var resulttable='<table class="table table-condensed"><thead><tr><th>#</th><th>ActivityNAme</th><th>CommunityName</th><th>Country</th><th>ActiveDescription</th></tr></thead><tbody>';
+ var resulttable='<table class="table table-condensed"><thead><tr><th>#</th><th>ActivityNAme</th><th>ActiveDescription</th></tr></thead><tbody>';
  $.getJSON( "activityDefault.php", function( data ) {
 	var resultlist='';
 	$.each( data, function( key, activity ) {
 		resultlist=resultlist+'<tr><td>'+activity.activityID+'</td><td>'+activity.activityName+'</td>';
-		resultlist=resultlist+'<td>'+community.communityName+', '+community.country+'</td>';
-		resultlist=resultlist+'<td>'+activity.activitydescription+'</td></tr>';
+		resultlist=resultlist+'<td>'+activity.activityDescription+'</td></tr>';
 	});
 	resulttable=resulttable+resultlist+'</tbody></table>';
 	$("#results3").html(resulttable);
  });
 }
 function searchActivity(){
-	var searchword=$("#search3").val();
+	var searchword=$("#searchActivity").val();
 	$.getJSON("activitySearch.php?search="+searchword,function(data){
 		var resultlist='';
 		$.each( data, function( key, activity ) {
-			resultlist=resultlist+activity.activityID+' '+activity.activityName+' '+activity.activityKeyword+'<br />';
-		});
+			resultlist=resultlist+'<tr><td>'+activity.activityID+'</td><td>'+activity.activityName+'</td>';
+			
+			});
 	$("#results3").html(resultlist);
 	});
 }
