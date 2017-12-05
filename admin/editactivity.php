@@ -53,7 +53,53 @@ if(!empty($update)) echo '<p class="alert alert-success">Updated!</p>';
 </form>
 </table>
 
-	<h5>Connect Activity to different communities in the area</h5>
+	
+	
+		<h5>Connect Activity to different companys </h5>
+	<form action="linkCompanyToActivity.php" method="post">
+	 <input type="hidden" name="activityID" value="<?php echo $activityID?>" />
+	 <div class="form-group">
+		<label for="company">Connect this activity to company:</label>
+		<select class="form-control" id="company" name="company">
+				<option value="">-Select company-</option>
+				<?php
+				 $sql="SELECT * FROM company 
+						WHERE companyID NOT 
+						IN(SELECT companyID FROM companyactivity WHERE activityID=$activityID)
+						ORDER BY city,companyName";
+				 $result=$conn->query($sql);
+				 while($row=$result->fetch_assoc()){
+					 echo '<option value="'.$row['companyID'].'">'.$row['companyName'].' '.$row['city'].' '.$row['street'].'</option>';
+				 }
+				?>
+		</select>
+	 </div>
+	 <button type="submit" class="btn btn-default">Link to company</button>
+	</form>
+	<p></p>
+	
+	<h5>Commpanys linked to this activity</h5>
+	<ul class="list-group"></ul>
+	<?php
+	$sql="SELECT * FROM company
+			INNER JOIN companyactivity ON company.companyID=companyactivity.companyID
+			INNER JOIN activity ON companyactivity.activityID=activity.activityID
+			WHERE companyactivity.activityID=$activityID";
+	$result=$conn->query($sql);
+	while($row=$result->fetch_assoc()){
+		echo '<li class="list-group-item">';
+		echo '<a href="unLinkActivityFromCompany.php?companyID='.$row['companyID'].'&activityID='.$activityID.'"><span class="glyphicon glyphicon-remove"></span></a> ';
+		echo $row['companyName'].', '.$row['city'];
+		echo '</li>';
+	}
+		
+
+
+	
+	
+	?>
+	
+		<h5>Connect Activity to different communities in the area</h5>
 	<form action="linkActivityToArea.php" method="post">
 	 <input type="hidden" name="activityID" value="<?php echo $activityID?>" />
 	 <div class="form-group">
@@ -72,7 +118,7 @@ if(!empty($update)) echo '<p class="alert alert-success">Updated!</p>';
 				?>
 		</select>
 	 </div>
-	 <button type="submit" class="btn btn-default">Link to area</button>
+	 <button type="submit2" class="btn btn-default">Link to area</button>
 	</form>
 	<p></p>
 	<div class="well">

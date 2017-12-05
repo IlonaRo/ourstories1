@@ -50,43 +50,13 @@ $(document).ready(function(){
 	});
 	
 	
-	$("#formsignin").submit(function(){
-		var msg;
-		$("#logininfo").html('<p class="alert alert-info"> Checking login...</p>');
-		$.post("login.php",{
-			email: $("#email").val(),
-			password:$("#password").val()
-		},function(data){
-			//parse the JSON-data to variable
-			var status=JSON.parse(data,function(key,value){
-				return value;
-			});
-			$("#logininfo").html('');
-			if(status.Status=='OK'){
-				//Tell that login ok and redirect to adminsite
-				msg='<p class="alert alert-success">Login ok</p>';
-				$("#logininfo").html(msg);
-				var url="./admin/index.php";
-				setTimeout(function(){
-					$(location).attr("href",url);
-				},2000); //2000ms = 2 seconds
-			}else{
-				$("#logininfo").html('<p class="alert alert-danger">'+status.Status+'</p>');
-				$("#email").val('');
-				$("#password").val('');
-				setTimeout(function(){
-					$("#logininfo").html('');
-				},2000); //2000ms = 2 seconds
-			}
-		});
-		return false; //no reload on the page
-	});
+
 });
 //activity part start
 function loadActivityDefault(){
  $.getJSON( "activityDefault.php", function( data ) {
 	var resultlist='';
-	$.each( data, function( key, activity, ) {
+	$.each( data, function( key, activity ) {
 		resultlist=resultlist+activity.activityID+' '+activity.activityName+' '+activity.activityDescription+' <br />';
 	});
 	$("#results3").html(resultlist);
@@ -110,7 +80,7 @@ function searchActivity(){
 	$.getJSON("activitySearch.php?search="+searchword,function(data){
 		var resultlist='';
 		$.each( data, function( key, activity ) {
-			resultlist=resultlist+'<tr><td>'+activity.activityID+'</td><td>'+activity.activityName+'</td><</tr>';
+			resultlist=resultlist+'<tr><td>'+activity.activityID+'</td><td>'+activity.activityName+'</td></tr>';
 			
 			});
 	$("#results3").html(resultlist);

@@ -1,5 +1,5 @@
 /***
-	file: admin/js/myscript.js/myscript
+	file: admin/js/myscript.js
 	desc: jQuery handling the upload of imagefile
 
 ***/
