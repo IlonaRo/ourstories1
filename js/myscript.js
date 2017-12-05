@@ -80,11 +80,7 @@ function searchActivity(){
 	$.getJSON("activitySearch.php?search="+searchword,function(data){
 		var resultlist='';
 		$.each( data, function( key, activity ) {
-<<<<<<< HEAD
 			resultlist=resultlist+'<tr><td>'+activity.activityID+'</td><td>'+activity.activityName+'</td></tr>';
-=======
-			resultlist=resultlist+'<tr><td>'+company.companyID+'</td><td>'+company.companyName+'</td><td>'+activity.activityName+'</td><</tr>';
->>>>>>> fb42dbce8eeffada54c99fbfa0830699a20a006e
 			
 			});
 	$("#results3").html(resultlist);
