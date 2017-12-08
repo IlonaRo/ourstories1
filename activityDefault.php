@@ -8,7 +8,7 @@ include('db.php');
 $sql="SELECT * FROM company
 			INNER JOIN companyactivity ON company.companyID=companyactivity.companyID
 			INNER JOIN activity ON companyactivity.activityID=activity.activityID
-			ORDER BY activityName";
+			ORDER BY companyName";
 $result3 = $conn->query($sql);
 $output=array();
 while($row=$result3->fetch_assoc()){

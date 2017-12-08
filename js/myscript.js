@@ -54,22 +54,24 @@ $(document).ready(function(){
 });
 //activity part start
 function loadActivityDefault(){
- $.getJSON( "activityDefault.php", function( data ) {
+ $.getJSON( "activityDefault.php", function( data, company ) {
 	var resultlist='';
-	$.each( data, function( key, activity ) {
-		resultlist=resultlist+activity.activityID+' '+activity.activityName+' '+activity.activityDescription+' <br />';
+	$.each( data, function ( key, company ) {
+		resultlist=resultlist+company.companyID+' '+company.companyName+' '+company.street+' '+company.city+' ';
+		resultlist=resultlist+' '+company.activityName+' ';
+		resultlist=resultlist+' '+company.activityDescription+'<br />';
 	});
 	$("#results3").html(resultlist);
  });
 }
 
 function loadActivityTable(){
- var resulttable='<table class="table table-condensed"><thead><tr><th>#</th><th>ActivityNAme</th><th>ActiveDescription</th></tr></thead><tbody>';
+ var resulttable='<table class="table table-condensed"><thead><tr><th>#</th><th>Company</th><th>Activity</th><th>Address</th><th>City</th></tr></thead><tbody>';
  $.getJSON( "activityDefault.php", function( data ) {
 	var resultlist='';
-	$.each( data, function( key, activity ) {
-		resultlist=resultlist+'<tr><td>'+activity.activityID+'</td><td>'+activity.activityName+'</td>';
-		resultlist=resultlist+'<td>'+activity.activityDescription+'</td></tr>';
+	$.each( data, function( key, company ) {
+		resultlist=resultlist+'<tr><td>'+company.companyID+'</td><td>'+company.companyName+'</td>';
+		resultlist=resultlist+'<td>'+company.activityName+'</td><td>'+company.street+'</td><td>'+company.city+'</td></tr>';
 	});
 	resulttable=resulttable+resultlist+'</tbody></table>';
 	$("#results3").html(resulttable);
@@ -79,8 +81,8 @@ function searchActivity(){
 	var searchword=$("#searchActivity").val();
 	$.getJSON("activitySearch.php?search="+searchword,function(data){
 		var resultlist='';
-		$.each( data, function( key, activity ) {
-			resultlist=resultlist+'<tr><td>'+activity.activityID+'</td><td>'+activity.activityName+'</td><td>'+activity.activityDescription+'</td></tr>';
+		$.each( data, function( key, company ) {
+			resultlist=resultlist+'<tr><td>'+company.companyID+'</td><td>'+company.companyName+'</td><td>'+company.activityName+'</td><td>'+company.street+'</td><td>'+company.city+'</td></tr>';
 			
 			});
 	$("#results3").html(resultlist);
