@@ -65,6 +65,50 @@ if(!empty($update)) echo '<p class="alert alert-success">Updated!</p>';
 </form>
 </table>
 
+		<h5>Connect Story to different companys </h5>
+	<form action="linkCompanyToStory.php" method="post">
+	 <input type="hidden" name="storyID" value="<?php echo $storyID?>" />
+	 <div class="form-group">
+		<label for="company">Connect this story to company:</label>
+		<select class="form-control" id="company" name="company">
+				<option value="">-Select company-</option>
+				<?php
+				 $sql="SELECT * FROM company 
+						WHERE companyID NOT 
+						IN(SELECT companyID FROM companystory WHERE storyID=$storyID)
+						ORDER BY city,companyName";
+				 $result=$conn->query($sql);
+				 while($row=$result->fetch_assoc()){
+					 echo '<option value="'.$row['companyID'].'">'.$row['companyName'].' '.$row['city'].' '.$row['street'].'</option>';
+				 }
+				?>
+		</select>
+	 </div>
+	 <button type="submit" class="btn btn-default">Link to story</button>
+	</form>
+	<p></p>
+	
+	<h5>Commpanys linked to this story</h5>
+	<ul class="list-group"></ul>
+	<?php
+	$sql="SELECT * FROM company
+			INNER JOIN companystory ON company.companyID=companystory.companyID
+			INNER JOIN story ON companystory.storyID=story.storyID
+			WHERE companystory.storyID=$storyID";
+	$result=$conn->query($sql);
+	while($row=$result->fetch_assoc()){
+		echo '<li class="list-group-item">';
+		echo '<a href="unLinkStoryFromCompany.php?companyID='.$row['companyID'].'&storyID='.$storyID.'"><span class="glyphicon glyphicon-remove"></span></a> ';
+		echo $row['companyName'].', '.$row['city'];
+		echo '</li>';
+	}
+		
+
+
+	
+	
+	?>
+
 	<h5>Connect Story to different communities in the area</h5>
 	<form action="linkStoryToArea.php" method="post">
 	 <input type="hidden" name="storyID" value="<?php echo $storyID?>" />
