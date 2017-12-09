@@ -1,5 +1,5 @@
 /*
-	file: 	js/myappactivity.js
+	file: 	js/myappstory.js
 	desc:	Code for app.
 */
 
@@ -42,25 +42,25 @@ function addSearch(){
     });
 	//take city name from select choise (area)
 	var area=$("#area").val();
-	var url="getCompanyAddressToActivity.php?area="+area;
+	var url="getcommunityAddressTostory.php?area="+area;
 	Markers(url);
 	getLocation();	
 }
 function addMarkers(){
-	var url="getCompanyAddressToActivity.php";
+	var url="getcommunityAddressTostory.php";
 	Markers(url);
 }
 
 function Markers(url){
 	//draws the markers on the map
 	$.getJSON(url,function(result){
-		$.each(result.companies,function(key,company){
-			address=company.Street + ', '+company.City;
+		$.each(result.communities,function(key,community){
+			address=community.Communityname ;
 			$("#map").addMarker({
-				address: address, 
-				title: company.Activityname,
-				url: company.Web,
-				text: '<p>'+address+'</p><p>'+company.Web+'</p>'
+				address: address,
+				title: community.Story,
+				url: community.Web,
+				text: '<p>'+city+'</p><p>'+community.Web+'</p>'
 			});
 		});
 	});
@@ -128,13 +128,3 @@ function getLocation(){
     $('.result').addClass('result').html(msg);
   }
 } // end getLocation()
-
-
-
-
-
-
-
-
-
-

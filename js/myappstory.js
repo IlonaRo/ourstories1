@@ -1,5 +1,5 @@
 /*
-	file: 	js/myappactivity.js
+	file: 	js/myappstory.js
 	desc:	Code for app.
 */
 
@@ -16,7 +16,7 @@ $(document).ready(function(){
 function initializeMap(){
 	
 	$("#map").googleMap({
-      zoom: 10, // Initial zoom level (optional)
+      zoom: 5, // Initial zoom level (optional)
       coords: [65.848523, 24.151954], // Map center (optional)
       type: "ROADMAP" // Map type (optional)
     });
@@ -36,29 +36,29 @@ function addYourLocation(lat,lng){
 function addSearch(){
 	//clear the map from previous state by initializing it
 	$("#map").googleMap({
-      zoom: 10, // Initial zoom level (optional)
+      zoom: 5, // Initial zoom level (optional)
       coords: [65.848523, 24.151954], // Map center (optional)
       type: "ROADMAP" // Map type (optional)
     });
 	//take city name from select choise (area)
 	var area=$("#area").val();
-	var url="getCompanyAddressToActivity.php?area="+area;
+	var url="getCompanyAddressTostory.php?area="+area;
 	Markers(url);
 	getLocation();	
 }
 function addMarkers(){
-	var url="getCompanyAddressToActivity.php";
+	var url="getCompanyAddressTostory.php.php";
 	Markers(url);
 }
 
 function Markers(url){
 	//draws the markers on the map
 	$.getJSON(url,function(result){
-		$.each(result.companies,function(key,company){
+		$.each(result.companys,function(key,company){
 			address=company.Street + ', '+company.City;
 			$("#map").addMarker({
 				address: address, 
-				title: company.Activityname,
+				title: company.Story,
 				url: company.Web,
 				text: '<p>'+address+'</p><p>'+company.Web+'</p>'
 			});
