@@ -125,11 +125,11 @@ function searchCompanies(){
 function loadStoriesDefault(){
 	$.getJSON( "storiesDefault.php", function( data ) {
 	var resultlist='';
-	$.each( data, function( key, community ) {
-		resultlist=resultlist+'<tr><td>'+community.storyTitle+'</td><td>'+community.storyType+'</td><td>'+community.communityName+'</td>';
-		resultlist=resultlist+'<td><a href="'+community.storyLink+'" target="_new">To the story</a></td>';
+	$.each( data, function( key, story ) {
+		resultlist=resultlist+'<tr><td>'+story.storyTitle+'</td><td>'+story.storyType+'</td>';
+		resultlist=resultlist+'<td><a href="'+story.storyLink+'" target="_new">To the story</a></td>';
 		resultlist=resultlist+'<td><button type="button" class="readmore btn" data-toggle="modal" data-target="#showStory" ';
-		resultlist=resultlist+'data-storyID="'+community.storyID+'">Read more</button></td>';
+		resultlist=resultlist+'data-storyID="'+story.storyID+'">Read more</button></td>';
 		resultlist=resultlist+'</tr>';	
 	});
 	$("#stories").html(resultlist);
