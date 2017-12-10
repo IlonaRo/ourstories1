@@ -17,8 +17,7 @@ $sql="SELECT * FROM community
 		ON companystory.companyID=company.companyID
 		INNER JOIN story
 		ON companystory.storyID=story.storyID ";
-$sql.="WHERE (communityName LIKE '%%$search%%') ".$storytype ;
-$sql.="ORDER BY communityName";
+$sql.="WHERE (city LIKE '%%$search%%') ".$storytype ;
 $result = $conn->query($sql);
 $output=array();
 while($row=$result->fetch_assoc()){
