@@ -40,7 +40,7 @@ $TotalRecords=$row['NrOfRecords'];
 
 <?php
 echo '<table class="table table-bordered"><tr><th>ID#</th><th>Email*</th><th>Password*</th>';
-echo '<th>Firstname*</th><th>Lastname*</th><th>Phone</th><th>Level*</th><th>Edit</th><th>Change Password</th></tr>';
+echo '<th>Firstname*</th><th>Lastname*</th><th>Phone</th><th>Level*</th><th>Image</th><th>Edit</th><th>Change Password</th></tr>';
 //if mode in url is add, display a form as first line in table
 if($mode=='add'){
 	echo '<form action="insertuser.php" method="post" >
@@ -81,6 +81,7 @@ while($row=$result->fetch_assoc()){
 	echo '<td><center>'.$row['lastname'].'</center></td>';
 	echo '<td><center>'.$row['phone'].'</td>';
 	echo '<td><center>'.$row['level'].'</center></td>';
+	echo '<td><center>'.$row['image'].'</td>';
 	echo '<td><center><a href="index.php?page=edituser&userID='.$row['userID'].'"><span class="glyphicon glyphicon-edit">';
 	echo '<td><center><a href="index.php?page=edituserpass&userID='.$row['userID'].'"><span class="glyphicon glyphicon-edit"></center>';
 	echo '</tr>';

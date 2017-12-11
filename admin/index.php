@@ -31,6 +31,8 @@ if($result->num_rows>0){
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<!--jQuery-->
 	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="js/myscript.js"></script>
+	
    	
 	</head>
 	<body>
