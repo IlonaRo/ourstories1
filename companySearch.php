@@ -6,12 +6,12 @@
 header("Access-Control-Allow-Origin: * "); //all the UIs can access
 if(!empty($_GET['search'])) $search=$_GET['search'].'%%';else $search='';
 include('db.php');
-$sql="SELECT DISTINCT * FROM company
-	RIGHT JOIN companyarea
+$sql="SELECT * FROM company
+	INNER JOIN companyarea
 	ON company.companyID=companyarea.companyID
-	JOIN community
+	INNER JOIN community
 	ON companyarea.communityID=community.communityID
-	WHERE community.communityName LIKE '$search'";
+	WHERE city LIKE '$search'";
 $search = $conn->query($sql);
 $output=array();
 while($row=$search->fetch_assoc()){
