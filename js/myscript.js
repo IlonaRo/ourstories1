@@ -93,7 +93,10 @@ function loadCompaniesDefault(){
  $.getJSON( "companiesDefault.php", function( data ) {
 	var resultlist='';
 	$.each( data, function( key, company ) {
-		resultlist=resultlist+company.companyID+' '+company.companyName+' '+company.city+' '+company.street+' <br />';
+	resultlist=resultlist+company.companyName+'  '+company.street+' ';
+	resultlist=resultlist+company.city+' '+company.postnr+' ';
+	resultlist=resultlist+'<a href="'+company.website+'" target="_new">Website</a> ';
+	resultlist=resultlist+'<br />';
 	});
 	$("#results").html(resultlist);
  });
@@ -106,7 +109,7 @@ function loadCompaniesTable(){
 	$.each( data, function( key, company ) {
 		resultlist=resultlist+'<tr><td>'+company.companyID+'</td><td>'+company.companyName+'</td>';
 		resultlist=resultlist+'<td>'+company.street+', '+company.postnr+' '+company.city+'</td>';
-		resultlist=resultlist+'<td>'+company.description+'</td><td><a href="'+company.web+'" target="_new">link</a></td></tr>';
+		resultlist=resultlist+'<td>'+company.description+'</td><td><a href="'+company.website+'" target="_new">Link to Website</a></td></tr>';
 	});
 	resulttable=resulttable+resultlist+'</tbody></table>';
 	$("#results").html(resulttable);
