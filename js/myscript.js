@@ -100,13 +100,13 @@ function loadCompaniesDefault(){
 }
 
 function loadCompaniesTable(){
- var resulttable='<table class="table table-condensed"><thead><tr><th>#</th><th>Company</th><th>Address</th><th>About</th><th>Website</th><th>Facebook</th></tr></thead><tbody>';
+ var resulttable='<table class="table table-condensed"><thead><tr><th>#</th><th>Company</th><th>Address</th><th>About</th><th>Website</th></tr></thead><tbody>';
  $.getJSON( "companiesDefault.php", function( data ) {
 	var resultlist='';
 	$.each( data, function( key, company ) {
 		resultlist=resultlist+'<tr><td>'+company.companyID+'</td><td>'+company.companyName+'</td>';
 		resultlist=resultlist+'<td>'+company.street+', '+company.postnr+' '+company.city+'</td>';
-		resultlist=resultlist+'<td>'+company.description+'</td><td>'+company.website+'</td><td>'+company.facebook+'</td></tr>';
+		resultlist=resultlist+'<td>'+company.description+'</td><td><a href="'+company.web+'" target="_new">link</a></td></tr>';
 	});
 	resulttable=resulttable+resultlist+'</tbody></table>';
 	$("#results").html(resulttable);
@@ -142,7 +142,7 @@ function searchStories(){
 	$.getJSON( "storiesDefault.php?search="+search+"&type="+type, function( data ) {
 	var resultlist='';
 	$.each( data, function( key, community ) {
-		resultlist=resultlist+'<tr><td>'+community.city+'</td><td>'+community.storyTitle+'</td><td>'+community.storyType+'</td><td>'+community.street+'</td>';
+		resultlist=resultlist+'<tr><td>'+community.storyTitle+'</td><td>'+community.storyType+'</td><td>'+community.street+'</td><td>'+community.city+'</td>';
 		resultlist=resultlist+'<td><a href="'+community.storyLink+'" target="_new">To the story</a></td>';
 		resultlist=resultlist+'<td><button type="button" class="readmore btn" data-toggle="modal" data-target="#showStory" ';
 		resultlist=resultlist+'data-storyID="'+community.storyID+'">Read more</button></td>';
